@@ -1,0 +1,39 @@
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile project (':testrunner-rt')
+    compile 'com.squareup.dagger:dagger:1.2.1'
+    provided 'com.squareup.dagger:dagger-compiler:1.2.1'
+    compile 'com.google.guava:guava:16.0'
+    compile 'org.hamcrest:hamcrest-core:1.1'
+    compile 'org.hamcrest:hamcrest-library:1.1'
+    compile 'org.hamcrest:hamcrest-integration:1.1'
+    compile 'javax.annotation:javax.annotation-api:1.2'
+    compile 'com.google.code.findbugs:jsr305:1.3.9'
+}
