@@ -43,7 +43,7 @@ public final class DefaultFailureHandler implements FailureHandler {
   }
 
   /**
-   * When the error is coming from espresso, it is more user friendly to:
+   * When the error is coming from tarator, it is more user friendly to:
    * 1. propagate assertions as assertions
    * 2. swap the stack trace of the error to that of current thread (which will show
    * directly where the actual problem is)

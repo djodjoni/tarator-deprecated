@@ -151,7 +151,7 @@ public final class CountingIdlingResource implements IdlingResource {
     int counterVal = counter.decrementAndGet();
 
     if (counterVal == 0) {
-      // we've gone from non-zero to zero. That means we're idle now! Tell espresso.
+      // we've gone from non-zero to zero. That means we're idle now! Tell tarator.
       if (null != resourceCallback) {
         resourceCallback.onTransitionToIdle();
       }

@@ -71,7 +71,7 @@ final class QueueInterrogator {
     checkNotNull(messageQueueNextMethod);
   }
 
-  // Only for use by espresso - keep package private.
+  // Only for use by tarator - keep package private.
   Message getNextMessage() {
     checkThread();
 

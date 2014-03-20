@@ -1,1 +1,1 @@
-include ':core', ':testrunner', ':testrunner-rt', ':lib-support-v4', ':testapp', ':testapp'
+include ':core', ':testrunner', ':testrunner-rt', ':lib-support-v4', ':testapp'
