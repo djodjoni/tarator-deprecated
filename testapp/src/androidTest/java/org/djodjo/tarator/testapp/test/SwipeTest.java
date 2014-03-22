@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onView;
 import static org.djodjo.tarator.action.ViewActions.swipeLeft;
@@ -24,7 +24,7 @@ public class SwipeTest extends ActivityInstrumentationTestCase2<ViewPagerActivit
   @SuppressWarnings("deprecation")
   public SwipeTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", ViewPagerActivity.class);
+    super("org.djodjo.tarator.testapp", ViewPagerActivity.class);
   }
 
   @Override

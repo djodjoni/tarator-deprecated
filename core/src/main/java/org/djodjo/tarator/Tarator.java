@@ -32,7 +32,7 @@ import static org.hamcrest.Matchers.endsWith;
  */
 public final class Tarator {
 
-  static ObjectGraph espressoGraph() {
+  static ObjectGraph taratorGraph() {
     return GraphHolder.graph();
   }
 
@@ -48,7 +48,7 @@ public final class Tarator {
    * @see #onData
    */
   public static ViewInteraction onView(final Matcher<View> viewMatcher) {
-    return espressoGraph().plus(new ViewInteractionModule(viewMatcher)).get(ViewInteraction.class);
+    return taratorGraph().plus(new ViewInteractionModule(viewMatcher)).get(ViewInteraction.class);
   }
 
 
@@ -85,7 +85,7 @@ public final class Tarator {
    * @throws IllegalArgumentException if looper is the main looper.
    */
   public static void registerLooperAsIdlingResource(Looper looper, boolean considerWaitIdle) {
-    espressoGraph().get(IdlingResourceRegistry.class).registerLooper(looper, considerWaitIdle);
+    taratorGraph().get(IdlingResourceRegistry.class).registerLooper(looper, considerWaitIdle);
   }
 
   /**
@@ -96,7 +96,7 @@ public final class Tarator {
    */
   public static void registerIdlingResources(IdlingResource... resources) {
     checkNotNull(resources);
-    IdlingResourceRegistry registry = espressoGraph().get(IdlingResourceRegistry.class);
+    IdlingResourceRegistry registry = taratorGraph().get(IdlingResourceRegistry.class);
     for (IdlingResource resource : resources) {
       checkNotNull(resource.getName(), "IdlingResource.getName() should not be null");
       registry.register(resource);
@@ -107,7 +107,7 @@ public final class Tarator {
    * Changes the default {@link FailureHandler} to the given one.
    */
   public static void setFailureHandler(FailureHandler failureHandler) {
-    espressoGraph().get(BaseLayerModule.FailureHandlerHolder.class)
+    taratorGraph().get(BaseLayerModule.FailureHandlerHolder.class)
         .update(checkNotNull(failureHandler));
   }
 

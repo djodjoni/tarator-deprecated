@@ -28,7 +28,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * <p>
  * This interface exists to work around this wart (which sadly is copied in other projects too) and
- * lets the implementor translate Espresso's needs and manipulations of the AdapterView into calls
+ * lets the implementor translate Tarator's needs and manipulations of the AdapterView into calls
  * that make sense for the given subtype and context.
  * </p>
  *

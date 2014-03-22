@@ -8,8 +8,6 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
-    <application android:label="TaratorInstrumentationTestRunner" >
-
-    </application>
+    <application/>
 
 </manifest>

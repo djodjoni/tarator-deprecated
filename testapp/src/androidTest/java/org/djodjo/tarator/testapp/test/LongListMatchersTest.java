@@ -1,16 +1,16 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.matcher.ViewMatchers.assertThat;
-import static org.djodjo.tarator.LongListMatchers.withItemContent;
-import static org.djodjo.tarator.LongListMatchers.withItemSize;
+import static org.djodjo.tarator.testapp.test.LongListMatchers.withItemContent;
+import static org.djodjo.tarator.testapp.test.LongListMatchers.withItemSize;
 import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.equalTo;
 
-import org.djodjo.tarator.testapp.LongListActivity;
-
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
+
+import org.djodjo.tarator.testapp.LongListActivity;
 
 /**
  * UnitTests for LongListMatchers matcher factory.

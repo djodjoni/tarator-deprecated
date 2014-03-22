@@ -83,7 +83,7 @@ public final class ViewFinderImpl implements ViewFinder {
       }
 
       String warning = String.format("\nIf the target view is not part of the view hierarchy, you "
-        + "may need to use Espresso.onData to load it from one of the following AdapterViews:%s"
+        + "may need to use Tarator.onData to load it from one of the following AdapterViews:%s"
         , Joiner.on("\n- ").join(adapterViews));
       throw new NoMatchingViewException.Builder()
           .withViewMatcher(viewMatcher)

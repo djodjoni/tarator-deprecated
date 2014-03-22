@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onData;
 import static org.djodjo.tarator.Tarator.onView;
@@ -6,14 +6,10 @@ import static org.djodjo.tarator.action.ViewActions.click;
 import static org.djodjo.tarator.assertion.ViewAssertions.matches;
 import static org.djodjo.tarator.matcher.ViewMatchers.withId;
 import static org.djodjo.tarator.matcher.ViewMatchers.withText;
-import static org.djodjo.tarator.LongListMatchers.isFooter;
-import static org.djodjo.tarator.LongListMatchers.withItemContent;
-import static org.djodjo.tarator.LongListMatchers.withItemSize;
+import static org.djodjo.tarator.testapp.test.LongListMatchers.withItemContent;
+import static org.djodjo.tarator.testapp.test.LongListMatchers.withItemSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
-
-import org.djodjo.tarator.testapp.LongListActivity;
-import org.djodjo.tarator.testapp.R;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -21,8 +17,11 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 
+import org.djodjo.tarator.matcher.ViewMatchers;
+import org.djodjo.tarator.testapp.*;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 import org.hamcrest.TypeSafeMatcher;
 
 /**
@@ -36,7 +35,7 @@ public class AdapterViewTest extends ActivityInstrumentationTestCase2<LongListAc
   @SuppressWarnings("deprecation")
   public AdapterViewTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", LongListActivity.class);
+    super("org.djodjo.tarator.testapp", LongListActivity.class);
   }
 
   @Override
@@ -47,58 +46,58 @@ public class AdapterViewTest extends ActivityInstrumentationTestCase2<LongListAc
 
   public void testClickOnItem50() {
     // The text view "item: 50" may not exist if we haven't scrolled to it.
-    // By using onData api we tell Espresso to look into the Adapter for an item matching
-    // the matcher we provide it. Espresso will then bring that item into the view hierarchy
+    // By using onData api we tell Tarator to look into the Adapter for an item matching
+    // the matcher we provide it. Tarator will then bring that item into the view hierarchy
     // and we can click on it.
 
-    onData(withItemContent("item: 50"))
+    onData(LongListMatchers.withItemContent("item: 50"))
       .perform(click());
 
-    onView(withId(R.id.selection_row_value))
+    onView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.selection_row_value))
       .check(matches(withText("50")));
   }
 
   public void testClickOnSpecificChildOfRow60() {
-    onData(withItemContent("item: 60"))
-      .onChildView(withId(R.id.item_size)) // resource id of second column from xml layout
+    onData(LongListMatchers.withItemContent("item: 60"))
+      .onChildView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.item_size)) // resource id of second column from xml layout
       .perform(click());
 
-    onView(withId(R.id.selection_row_value))
+    onView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.selection_row_value))
       .check(matches(withText("60")));
 
-    onView(withId(R.id.selection_column_value))
+    onView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.selection_column_value))
       .check(matches(withText("2")));
   }
 
   public void testClickOnFirstAndFifthItemOfLength8() {
-    onData(is(withItemSize(8)))
+    onData(Matchers.is(LongListMatchers.withItemSize(8)))
       .atPosition(0)
       .perform(click());
 
-    onView(withId(R.id.selection_row_value))
+    onView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.selection_row_value))
       .check(matches(withText("10")));
 
-    onData(is(withItemSize(8)))
+    onData(Matchers.is(LongListMatchers.withItemSize(8)))
       .atPosition(4)
       .perform(click());
 
-    onView(withId(R.id.selection_row_value))
+    onView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.selection_row_value))
       .check(matches(withText("14")));
   }
 
   @SuppressWarnings("unchecked")
   public void testClickFooter() {
-    onData(isFooter())
+    onData(LongListMatchers.isFooter())
       .perform(click());
 
-    onView(withId(R.id.selection_row_value))
+    onView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.selection_row_value))
       .check(matches(withText("100")));
   }
 
   @SuppressWarnings("unchecked")
   public void testDataItemNotInAdapter(){
-    onView(withId(R.id.list))
-      .check(matches(not(withAdaptedData(withItemContent("item: 168")))));
+    onView(ViewMatchers.withId(org.djodjo.tarator.testapp.R.id.list))
+      .check(matches(not(withAdaptedData(LongListMatchers.withItemContent("item: 168")))));
   }
 
   private static Matcher<View> withAdaptedData(final Matcher<Object> dataMatcher) {

@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onData;
 import static org.djodjo.tarator.Tarator.onView;
@@ -26,7 +26,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 /**
  * Demonstrates dealing with multiple windows.
  *
- * Espresso provides the ability to switch the default window matcher used in both onView and onData
+ * Tarator provides the ability to switch the default window matcher used in both onView and onData
  * interactions.
  *
  * @see org.djodjo.tarator.Tarator#onView
@@ -38,13 +38,13 @@ public class MultipleWindowTest extends ActivityInstrumentationTestCase2<SendAct
   @SuppressWarnings("deprecation")
   public MultipleWindowTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", SendActivity.class);
+    super("org.djodjo.tarator.testapp", SendActivity.class);
   }
 
   @Override
   public void setUp() throws Exception {
     super.setUp();
-    // Espresso will not launch our activity for us, we must launch it via getActivity().
+    // Tarator will not launch our activity for us, we must launch it via getActivity().
     getActivity();
   }
 
@@ -59,13 +59,13 @@ public class MultipleWindowTest extends ActivityInstrumentationTestCase2<SendAct
     // on top of each other. Each Window is a transparency, and what is drawn on top of this
     // transparency is the view hierarchy.
     //
-    // By default Espresso uses a heuristic to guess which Window you intend to interact with.
+    // By default Tarator uses a heuristic to guess which Window you intend to interact with.
     // This heuristic is normally 'good enough' however if you want to interact with a Window
     // that it does not select then you'll have to swap in your own root window matcher.
 
 
     // Initially we only have 1 window, but by typing into the auto complete text view another
-    // window will be layered on top of the screen. Espresso ignore's this layer because it is
+    // window will be layered on top of the screen. Tarator ignore's this layer because it is
     // not connected to the keyboard/ime.
     onView(withId(R.id.auto_complete_text_view))
         .perform(scrollTo())
@@ -77,7 +77,7 @@ public class MultipleWindowTest extends ActivityInstrumentationTestCase2<SendAct
     onView(withId(R.id.auto_complete_text_view))
         .perform(typeTextIntoFocusedView("uth "));
 
-    // Now we may want to explicitly tap on a completion. We must override Espresso's
+    // Now we may want to explicitly tap on a completion. We must override Tarator's
     // default window selection heuristic with our own.
     onView(withText("South China Sea"))
         .inRoot(withDecorView(not(is(getActivity().getWindow().getDecorView()))))

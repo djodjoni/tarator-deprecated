@@ -19,7 +19,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Adds the user interaction scope to the Tarator graph.
  */
 @Module(
-    addsTo = GraphHolder.EspressoModule.class,
+    addsTo = GraphHolder.TaratorModule.class,
     injects = {ViewInteraction.class})
 class ViewInteractionModule {
 

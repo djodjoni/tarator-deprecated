@@ -31,7 +31,7 @@ public final class RootMatchers {
   private RootMatchers() {}
 
   /**
-   * Espresso's default {@link Root} matcher.
+   * Tarator's default {@link Root} matcher.
    */
   @SuppressWarnings("unchecked")
   public static final Matcher<Root> DEFAULT =

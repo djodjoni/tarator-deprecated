@@ -12,7 +12,6 @@ import android.os.Looper;
 import android.os.MessageQueue.IdleHandler;
 import android.util.Log;
 
-import org.djodjo.tarator.testrunner.hidden.ExposedInstrumentationApi;
 import org.djodjo.tarator.testrunner.intento.IntentSpy;
 
 import java.io.File;

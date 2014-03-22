@@ -10,7 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "org.djodjo.tarator.testrunner.TaratorInstrumentationTestRunner"
-
+        testPackageName "org.djodjo.tarator.testapp.test"
     }
     buildTypes {
         release {

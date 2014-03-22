@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onView;
 import static org.djodjo.tarator.Tarator.setFailureHandler;
@@ -8,7 +8,6 @@ import static org.djodjo.tarator.matcher.ViewMatchers.withText;
 import org.djodjo.tarator.FailureHandler;
 import org.djodjo.tarator.NoMatchingViewException;
 import org.djodjo.tarator.base.DefaultFailureHandler;
-import org.djodjo.tarator.testapp.MainActivity;
 
 import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
@@ -16,6 +15,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.util.Log;
 import android.view.View;
 
+import org.djodjo.tarator.testapp.MainActivity;
 import org.hamcrest.Matcher;
 
 /**
@@ -29,7 +29,7 @@ public class CustomFailureHandlerTest extends ActivityInstrumentationTestCase2<M
   @SuppressWarnings("deprecation")
   public CustomFailureHandlerTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", MainActivity.class);
+    super("org.djodjo.tarator.testapp", MainActivity.class);
   }
 
   @Override
@@ -49,7 +49,7 @@ public class CustomFailureHandlerTest extends ActivityInstrumentationTestCase2<M
 
   /**
    * A {@link FailureHandler} that re-throws {@link NoMatchingViewException} as
-   * {@link org.djodjo.tarator.CustomFailureHandlerTest.MySpecialException}. All other functionality is delegated to
+   * {@link CustomFailureHandlerTest.MySpecialException}. All other functionality is delegated to
    * {@link DefaultFailureHandler}.
    */
   private static class CustomFailureHandler implements FailureHandler {

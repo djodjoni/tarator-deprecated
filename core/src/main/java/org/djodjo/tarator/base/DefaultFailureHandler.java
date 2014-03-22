@@ -19,8 +19,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Throwables.propagate;
 
 /**
- * Espresso's default {@link FailureHandler}. If this does not fit your needs, feel free to provide
- * your own implementation via Espresso.setFailureHandler(FailureHandler).
+ * Tarator's default {@link FailureHandler}. If this does not fit your needs, feel free to provide
+ * your own implementation via Tarator.setFailureHandler(FailureHandler).
  */
 public final class DefaultFailureHandler implements FailureHandler {
 

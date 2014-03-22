@@ -29,7 +29,7 @@ public final class GraphHolder {
   static ObjectGraph graph() {
     GraphHolder instanceRef = instance.get();
     if (null == instanceRef) {
-      instanceRef = new GraphHolder(ObjectGraph.create(EspressoModule.class));
+      instanceRef = new GraphHolder(ObjectGraph.create(TaratorModule.class));
       if (instance.compareAndSet(null, instanceRef)) {
         UsageTrackerRegistry.getInstance().trackUsage("Tarator");
         return instanceRef.graph;
@@ -45,7 +45,7 @@ public final class GraphHolder {
   public static void initialize(Object... modules) {
     checkNotNull(modules);
     Object[] allModules = new Object[modules.length + 1];
-    allModules[0] = EspressoModule.class;
+    allModules[0] = TaratorModule.class;
     System.arraycopy(modules, 0, allModules, 1, modules.length);
     GraphHolder holder = new GraphHolder(ObjectGraph.create(modules));
     checkState(instance.compareAndSet(null, holder), "Tarator already initialized.");
@@ -56,7 +56,7 @@ public final class GraphHolder {
     includes = BaseLayerModule.class,
     injects = IdlingResourceRegistry.class
   )
-  static class EspressoModule {
+  static class TaratorModule {
   }
 
 }

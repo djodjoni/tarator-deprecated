@@ -69,7 +69,7 @@ import static com.google.common.base.Preconditions.checkState;
  *       FooServer realServer = FooApplication.getFooServer();
  *       CountingIdlingResource countingResource = new CountingIdlingResource("FooServerCalls");
  *       FooApplication.setFooServer(new DecoratedFooServer(realServer, countingResource));
- *       Espresso.registerIdlingResource(countingResource);
+ *       Tarator.registerIdlingResource(countingResource);
  *     }
  *   }
  *   </pre>
@@ -92,7 +92,7 @@ public final class CountingIdlingResource implements IdlingResource {
   /**
    * Creates a CountingIdlingResource without debug tracing.
    *
-   * @param resourceName the resource name this resource should report to Espresso.
+   * @param resourceName the resource name this resource should report to Tarator.
    */
   public CountingIdlingResource(String resourceName) {
     this(resourceName, false);
@@ -101,7 +101,7 @@ public final class CountingIdlingResource implements IdlingResource {
   /**
    * Creates a CountingIdlingResource.
    *
-   * @param resourceName the resource name this resource should report to Espresso.
+   * @param resourceName the resource name this resource should report to Tarator.
    * @param debugCounting if true increment & decrement calls will print trace information to logs.
    */
   public CountingIdlingResource(String resourceName, boolean debugCounting) {

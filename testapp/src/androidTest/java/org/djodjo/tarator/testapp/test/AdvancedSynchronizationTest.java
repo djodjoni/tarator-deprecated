@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onView;
 import static org.djodjo.tarator.Tarator.registerIdlingResources;
@@ -36,7 +36,7 @@ public class AdvancedSynchronizationTest extends ActivityInstrumentationTestCase
     @Override
     public String getHelloWorld() {
       // Use CountingIdlingResource to track in-flight calls to getHelloWorld (a simulation of a
-      // network call). Whenever the count goes to zero, Espresso will be notified that this
+      // network call). Whenever the count goes to zero, Tarator will be notified that this
       // resource is idle and the test will be able to proceed.
       helloWorldServerIdlingResource.increment();
       try {
@@ -50,7 +50,7 @@ public class AdvancedSynchronizationTest extends ActivityInstrumentationTestCase
   @SuppressWarnings("deprecation")
   public AdvancedSynchronizationTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", SyncActivity.class);
+    super("org.djodjo.tarator.testapp", SyncActivity.class);
   }
 
   @Override
@@ -69,7 +69,7 @@ public class AdvancedSynchronizationTest extends ActivityInstrumentationTestCase
     // Request the "hello world!" text by clicking on the request button.
     onView(withId(R.id.request_button)).perform(click());
 
-    // Espresso waits for the resource to go idle and then continues.
+    // Tarator waits for the resource to go idle and then continues.
 
     // The check if the text is visible can pass now.
     onView(withId(R.id.status_text)).check(matches(withText(R.string.hello_world)));

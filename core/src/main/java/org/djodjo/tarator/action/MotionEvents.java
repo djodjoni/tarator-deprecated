@@ -77,7 +77,7 @@ final class MotionEvents {
         if (SystemClock.uptimeMillis() > (downTime + ViewConfiguration.getLongPressTimeout())) {
           longPress = true;
           Log.e(TAG, "Overslept and turned a tap into a long press");
-          UsageTrackerRegistry.getInstance().trackUsage("Espresso.Tap.Error.tapToLongPress");
+          UsageTrackerRegistry.getInstance().trackUsage("Tarator.Tap.Error.tapToLongPress");
         }
 
         if (!injectEventSucceeded) {

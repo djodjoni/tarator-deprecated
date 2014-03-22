@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onData;
 import static org.djodjo.tarator.Tarator.onView;
@@ -31,13 +31,13 @@ public class BasicTest extends ActivityInstrumentationTestCase2<SimpleActivity> 
   @SuppressWarnings("deprecation")
   public BasicTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", SimpleActivity.class);
+    super("org.djodjo.tarator.testapp", SimpleActivity.class);
   }
 
   @Override
   public void setUp() throws Exception {
     super.setUp();
-    // Espresso will not launch our activity for us, we must launch it via getActivity().
+    // Tarator will not launch our activity for us, we must launch it via getActivity().
     getActivity();
   }
 
@@ -46,28 +46,28 @@ public class BasicTest extends ActivityInstrumentationTestCase2<SimpleActivity> 
         .perform(click());
 
     onView(withId(R.id.text_simple))
-        .check(matches(withText("Hello Espresso!")));
+        .check(matches(withText("Hello Tarator!")));
   }
 
   public void testTypingAndPressBack() {
     // Close soft keyboard after type to avoid issues on devices with soft keyboard.
     onView(withId(R.id.sendtext_simple))
-        .perform(typeText("Have a cup of Espresso."), closeSoftKeyboard());
+        .perform(typeText("Have a cup of Tarator."), closeSoftKeyboard());
 
     onView(withId(R.id.send_simple))
         .perform(click());
 
     // Clicking launches a new activity that shows the text entered above. You don't need to do
-    // anything special to handle the activity transitions. Espresso takes care of waiting for the
+    // anything special to handle the activity transitions. Tarator takes care of waiting for the
     // new activity to be resumed and its view hierarchy to be laid out.
     onView(withId(R.id.display_data))
-        .check(matches(withText(("Have a cup of Espresso."))));
+        .check(matches(withText(("Have a cup of Tarator."))));
 
     // Going back to the previous activity - lets make sure our text was perserved.
     pressBack();
 
     onView(withId(R.id.sendtext_simple))
-        .check(matches(withText(containsString("Espresso"))));
+        .check(matches(withText(containsString("Tarator"))));
   }
 
   @SuppressWarnings("unchecked")
@@ -78,11 +78,11 @@ public class BasicTest extends ActivityInstrumentationTestCase2<SimpleActivity> 
     // Spinner creates a List View with its contents - this can be very long and the element not
     // contributed to the ViewHierarchy - by using onData we force our desired element into the
     // view hierarchy.
-    onData(allOf(is(instanceOf(String.class)), is("Americano")))
+    onData(allOf(is(instanceOf(String.class)), is("Yogurt")))
       .perform(click());
 
     onView(withId(R.id.spinnertext_simple))
-      .check(matches(withText(containsString("Americano"))));
+      .check(matches(withText(containsString("Yogurt"))));
   }
 }
 

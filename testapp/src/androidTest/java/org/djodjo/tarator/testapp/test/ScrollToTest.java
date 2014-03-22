@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onView;
 import static org.djodjo.tarator.action.ViewActions.click;
@@ -22,13 +22,13 @@ public class ScrollToTest extends ActivityInstrumentationTestCase2<ScrollActivit
   @SuppressWarnings("deprecation")
   public ScrollToTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", ScrollActivity.class);
+    super("org.djodjo.tarator.testapp", ScrollActivity.class);
   }
 
   @Override
   public void setUp() throws Exception {
     super.setUp();
-    // Espresso will not launch our activity for us, we must launch it via getActivity().
+    // Tarator will not launch our activity for us, we must launch it via getActivity().
     getActivity();
   }
 

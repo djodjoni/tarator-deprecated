@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onView;
 import static org.djodjo.tarator.Tarator.openActionBarOverflowOrOptionsMenu;
@@ -15,7 +15,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
 /**
- * Demonstrates Espresso with action bar and contextual action mode.
+ * Demonstrates Tarator with action bar and contextual action mode.
  * {@link openActionBarOverflowOrOptionsMenu()} opens the overflow menu from an action bar.
  * {@link openContextualActionModeOverflowMenu()} opens the overflow menu from an contextual action
  * mode.
@@ -25,13 +25,13 @@ public class ActionBarTest extends ActivityInstrumentationTestCase2<ActionBarTes
   @SuppressWarnings("deprecation")
   public ActionBarTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", ActionBarTestActivity.class);
+    super("org.djodjo.tarator.testapp", ActionBarTestActivity.class);
   }
 
   @Override
   public void setUp() throws Exception {
     super.setUp();
-    // Espresso will not launch our activity for us, we must launch it via getActivity().
+    // Tarator will not launch our activity for us, we must launch it via getActivity().
     getActivity();
   }
 

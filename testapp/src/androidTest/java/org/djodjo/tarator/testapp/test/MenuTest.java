@@ -1,4 +1,4 @@
-package org.djodjo.tarator;
+package org.djodjo.tarator.testapp.test;
 
 import static org.djodjo.tarator.Tarator.onView;
 import static org.djodjo.tarator.action.ViewActions.click;
@@ -26,7 +26,7 @@ public class MenuTest extends ActivityInstrumentationTestCase2<MenuActivity> {
   @SuppressWarnings("deprecation")
   public MenuTest() {
     // This constructor was deprecated - but we want to support lower API levels.
-    super("com.google.android.apps.common.testing.ui.testapp", MenuActivity.class);
+    super("org.djodjo.tarator.testapp", MenuActivity.class);
   }
 
   @Override

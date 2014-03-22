@@ -1,4 +1,4 @@
-package org.djodjo.tarator.testrunner.hidden;
+package org.djodjo.tarator.testrunner;
 
 import android.app.Activity;
 import android.app.Fragment;

@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
- * Simple activity used to demonstrate a simple Espresso test.
+ * Simple activity used to demonstrate a simple Tarator test.
  */
 public class SimpleActivity extends Activity implements OnItemSelectedListener{
 
@@ -33,7 +33,7 @@ public class SimpleActivity extends Activity implements OnItemSelectedListener{
 
   public void simpleButtonClicked(View view) {
     TextView textView = (TextView) findViewById(R.id.text_simple);
-    String message = "Hello Espresso!";
+    String message = "Hello Tarator!";
     textView.setText(message);
   }
 

@@ -14,7 +14,7 @@ import java.util.Random;
 
 /**
  * Displays "hello world" with a random delay of 2 to 7s after the user clicks on a button. This is
- * used to demonstrate how Espresso can synchronize with any part of your application, which may
+ * used to demonstrate how Tarator can synchronize with any part of your application, which may
  * cause the application state to be unstable (e.g. a network call).
  */
 public class SyncActivity extends Activity {

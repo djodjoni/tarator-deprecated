@@ -63,13 +63,14 @@
     <string name="app_name">Tarator TestApp</string>
 
     <string-array name="spinner_array">
-        <item>Espresso</item>
-        <item>Doppio</item>
-        <item>Macchiato</item>
-        <item>Cappuccino</item>
-        <item>Americano</item>
-        <item>Mocha</item>
-        <item>Late</item>
+        <item>Tarator</item>
+        <item>Yogurt</item>
+        <item>Cucumber</item>
+        <item>Garlic</item>
+        <item>Walnuts</item>
+        <item>Dill</item>
+        <item>Veg oil</item>
+        <item>Water</item>
     </string-array>
 
 </resources>
