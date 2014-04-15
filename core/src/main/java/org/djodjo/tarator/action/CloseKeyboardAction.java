@@ -15,6 +15,7 @@ import org.djodjo.tarator.testrunner.ActivityLifecycleMonitorRegistry;
 import org.djodjo.tarator.testrunner.Stage;
 import org.djodjo.tarator.util.HumanReadables;
 import org.hamcrest.Matcher;
+import org.hamcrest.core.IsAnything;
 
 import java.util.Collection;
 import java.util.concurrent.CountDownLatch;
@@ -23,7 +24,6 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.google.common.collect.Iterables.getOnlyElement;
-import static org.hamcrest.Matchers.anything;
 
 /**
  * Closes soft keyboard.
@@ -36,7 +36,7 @@ public final class CloseKeyboardAction implements ViewAction {
   @SuppressWarnings("unchecked")
   @Override
   public Matcher<View> getConstraints() {
-    return anything();
+    return new IsAnything<View>();
   }
 
   @Override
