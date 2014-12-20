@@ -1,18 +1,18 @@
 apply plugin: 'android-library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
@@ -25,6 +25,23 @@ android {
         abortOnError false
     }
 }
+
+task jar(type: Jar) {
+    from android.sourceSets.main.java
+}
+
+task clearJar(type: Delete) {
+    delete 'build/libs/tarator.jar'
+}
+
+task makeJar(type: Copy) {
+    from('build/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    rename ('classes.jar', 'tarator.jar')
+}
+
+makeJar.dependsOn(clearJar, build)
 
 dependencies {
     compile project (':testrunner-rt')

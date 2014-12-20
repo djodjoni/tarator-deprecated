@@ -1,20 +1,21 @@
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "org.djodjo.tarator.testrunner.TaratorInstrumentationTestRunner"
-        testPackageName "org.djodjo.tarator.testapp.test"
+        testApplicationId "org.djodjo.tarator.testapp.test"
+
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
@@ -29,11 +30,11 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:19.0.1'
-    compile 'com.android.support:appcompat-v7:19.0.1'
+    compile 'com.android.support:support-v4:21.+'
+    compile 'com.android.support:appcompat-v7:21.+'
     compile 'com.google.guava:guava:16.0'
 
-    androidTestCompile(project(':core')) {
+    androidTestCompile(project(':tarator')) {
         // TODO workaround for http://b.android.com/65445
         exclude group: 'com.google.guava', module: 'guava'
     }

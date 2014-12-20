@@ -1,18 +1,18 @@
 apply plugin: 'android-library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
@@ -27,6 +27,6 @@ android {
 }
 
 dependencies {
-    compile project (':core')
-    compile 'com.android.support:support-v4:19.0.1'
+    compile project (':tarator')
+    compile 'com.android.support:support-v4:21.+'
 }
