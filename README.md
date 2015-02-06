@@ -1,5 +1,8 @@
 tarator
 =======
+This is deprecated since Espresso 2 is out and included in android test packages.
+The NEW tarator library (https://github.com/djodjoni/tarator) is used now for Cucumber and Espresso integration
+=======
 
 Android test framework.
 
